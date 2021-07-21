@@ -60,6 +60,7 @@ public class Character : MonoBehaviour
             if (jumpSpeed <= 0)
             {
                 jumpSpeed = 6.0f;
+               // throw new UnassignedReferenceException("Jump Problem");
 
                 Debug.LogWarning(name + ": jumpSpeed not set. Defaulting to " + jumpSpeed);
             }
@@ -98,14 +99,30 @@ public class Character : MonoBehaviour
         {
             Debug.LogWarning(e.Message);
         }
+        catch(UnassignedReferenceException e)
+        {
+            Debug.LogWarning(e.Message);
+        }
+        catch(UnityException e)
+        {
+            Debug.LogWarning(e.Message);
+        }
+        catch(InvalidOperationException e)
+        {
+            Debug.LogWarning(e.Message);
+        }
+        //finally
+        //{
+        //    Debug.LogWarning("Always get called");
+        //}
     }
 
-
-    // Update is called once per frame
     void Update()
     {
+
         switch (type)
         {
+
             case ControllerType.SimpleMove:
 
                 //transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed, 0);
@@ -140,22 +157,16 @@ public class Character : MonoBehaviour
         collectibles.AddFirst("Health");
         collectibles.AddFirst("Score");
 
-        // if (Input.GetButtonDown("Fire1"))
+        
+      
         if (Input.GetButtonDown("Fire1") && (collectibles.Contains("PowerUp") == true))
-        {
-          //  if (collectibles.Contains("PowerUp") == true)
-         //   {
+        {        
                 fire();
-          //  }
-            //   fire();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && (collectibles.Contains("Score") == true))
-        {
-           // if (collectibles.Contains("Score") == true)
-           // {
-                KeepScore.Score += 100;
-         //   }
+        {           
+                KeepScore.Score += 100;       
         }
 
         if (Time.timeScale != 0)
@@ -174,6 +185,7 @@ public class Character : MonoBehaviour
                 timeBtwShots -= Time.deltaTime;
             }
         }
+        
     }
 
     public void fire()
@@ -203,19 +215,4 @@ public class Character : MonoBehaviour
     {
         speed = 6.0f;
     }
-
-    //void OnTriggerEnter(Collider other)
-       
-    //{
-    //    if (other.gameObject.tag == "PickUp")
-    //    {
-    //        LinkedList<string> collectibles = new LinkedList<string>();
-
-    //        for (int i = 0; i < 2; i++)
-    //            collectibles.AddFirst("PowerUp");
-    //            collectibles.AddFirst("Health");
-    //            collectibles.AddFirst("Score");
-    //    }
-
-    //}
 }

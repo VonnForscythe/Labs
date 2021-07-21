@@ -24,35 +24,35 @@ public class PickUps : MonoBehaviour
     {
 
 
-        if (other.gameObject.tag == "Player")
-        {
+        //if (other.gameObject.tag == "Player")
+        //{
 
-            //switch (currentCollectible)
-            //{
-            //    case CollectibleType.POWERUP:
-            //        Character pmScript = other.gameObject.GetComponent<Character>();
-            //        pmScript.powerUp++;
-                
+        //    switch (currentCollectible)
+        //    {
+        //        case CollectibleType.POWERUP:
+        //            Character pmScript = other.gameObject.GetComponent<Character>();
+        //            pmScript.powerUp++;
 
 
-            //        break;
 
-            //    case CollectibleType.LIVES:
-            //        pmScript = other.gameObject.GetComponent<Character>();
-            //        pmScript.health++;
+        //            break;
 
-                    
-            //        break;
+        //        case CollectibleType.LIVES:
+        //            pmScript = other.gameObject.GetComponent<Character>();
+        //            pmScript.health++;
 
-            //    case CollectibleType.Score:
-            //        pmScript = other.gameObject.GetComponent<Character>();
-            //        pmScript.score++;
 
-            //        break;
+        //            break;
 
-           
-            //}
+        //        case CollectibleType.Score:
+        //            pmScript = other.gameObject.GetComponent<Character>();
+        //            pmScript.score++;
+
+        //            break;
+
+
+        //    }
             Destroy(gameObject);
-        }
+       // }
     }
 }
